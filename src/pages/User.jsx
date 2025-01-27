@@ -17,7 +17,7 @@ function User() {
 
   const handleUpdate =  async () => {
     try {
-      const {data} = await axios.patch('http://localhost:6000/api/v1/user/update', {
+      const {data} = await axios.patch('http://localhost:5500/api/v1/user/update', {
         name: user.name,
         email: user.email,
       },{

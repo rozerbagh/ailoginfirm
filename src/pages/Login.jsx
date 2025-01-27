@@ -16,7 +16,7 @@ function Login() {
   const handleLogin= ()=>{
     if(formInput.email.isValid && formInput.password.isValid){
       axios
-        .post("http://localhost:6000/api/v1/user/login", {
+        .post("http://localhost:5500/api/v1/user/login", {
           email: formInput.email.value,
           password: formInput.password.value,
         },{
