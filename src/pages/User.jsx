@@ -10,7 +10,7 @@ function User() {
     if (!userData) {
       window.location.href = "/login";
     } else {
-      setUser(JSON.parse(user));
+      setUser(JSON.parse(userData.data));
     }
 
   },[]);
