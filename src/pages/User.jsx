@@ -10,7 +10,8 @@ function User() {
     if (!userData) {
       window.location.href = "/login";
     } else {
-      setUser(JSON.parse(userData.data));
+      console.log(JSON.parse(userData).data);
+      setUser(JSON.parse(userData).data);
     }
 
   },[]);
@@ -42,7 +43,7 @@ function User() {
         type="text"
         placeholder="t"
         aria-label="default input example"
-        value={user?.name || name}
+        value={name || user?.name}
         onChange={(e) => setName(e.target.value)}
       />
       <input
@@ -50,15 +51,17 @@ function User() {
         type="text"
         placeholder="t"
         aria-label="default input example"
-        value={user?.email || email}
+        value={email || user?.email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
+        readOnly
         className="form-control"
         type="text"
         placeholder="demo@email.com"
         aria-label="default input example"
-        value={user?.email}
+        value={user?.password}
+        disabled
       />
       <button className="btn btn-primary" onClick={handleUpdate}>
         Update
