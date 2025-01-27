@@ -1,17 +1,19 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import Login from './pages/Login'
+import { useEffect, useState } from "react";
+import "./App.css";
+import Login from "./pages/Login";
+import User from "./pages/User";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   useEffect(() => {
-    isAuth && console.log('User is authenticated');
+    const user = localStorage.getItem("user");
+    if (user) {
+      setIsAuth(true);
+    } else {
+      setIsAuth(false);
+    }
   }, []);
-  return (
-    <>
-      <Login />
-    </>
-  )
+  return <>{isAuth ? <User /> : <Login />}</>;
 }
 
-export default App
+export default App;
