@@ -18,7 +18,7 @@ function User() {
 
   const handleUpdate =  async () => {
     try {
-      const {data} = await axios.patch('http://localhost:5500/api/v1/user/update', {
+      const {data} = await axios.patch(`http://localhost:5500/api/v1/user/update/${user?.id}`, {
         name: user.name,
         email: user.email,
       },{
@@ -63,9 +63,15 @@ function User() {
         value={user?.password}
         disabled
       />
+      <br />  
       <button className="btn btn-primary" onClick={handleUpdate}>
         Update
       </button>
+      &nbsp;
+      <button className="btn btn-warning" onClick={()=>{
+        localStorage.clear();
+        window.location.reload();
+        }}>Logout</button>
     </div>
   ) : (
     <h1>No user</h1>
